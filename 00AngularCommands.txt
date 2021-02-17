@@ -1,0 +1,92 @@
+Install Node, it will also install NPM
+------------------------------------------
+node version v14.15.5
+	> node --version
+npm version 6.14.11
+	> npm --version 
+Angular version 11.2.0
+	> ng --version
+------------------------------------------
+
+To update NPM
+
+> npm install -g npm
+
+Than install angular by issuing the following command
+
+> npm install -g @angular/cli
+
+To uninstall 
+
+> npm uninstall -g @angular/cli
+
+Then, run (--force flag might be required)
+
+> npm cache clean
+
+or, if you're using npm > 5.
+
+> npm cache verify
+
+To install a specific version issue following command
+
+> npm install -g @angular/cli@wished.version.here
+
+To check the version of node. npm and angular
+
+>node --version
+
+> npm --version
+
+>ng --version
+
+To install bootstarp locally
+
+ >npm install --save bootstrap@X where X is the bootstrap version 
+
+Then add it to the angular.json, styles array. make sure that bootstrap is the first one.
+
+Angular CLI commands
+
+    https://www.npmjs.com/package/@angular/cli/v/11.1.2
+    https://www.javatpoint.com/angular-7-all-cli-commands
+    https://angular.io/guide/setup-local  
+
+Create Component
+>ng g c value --spec false
+>ng generate component value --spec false 
+    
+Some helpful extensions for Angular when using visual studio code. Get the latest version of these.
+    1. Angular and then select Angular v7 Snippets by john papa
+    2. Angular Files 1.6.2 Alexander Ivanichev
+    4. Angular Language Service 0.1.10 by Angular
+    5. Angular2-switcher by infinity1207
+    6. Auto Rename Tag 0.0.15 Jun Han
+    7. Bracket Pair Colorizer CoenraadS
+    8. Debugger for Chrome Microsoft 4.11.0
+    9. Material Icon Theme Philipp Kief 3.6.0
+    10. Path Intellisense Christian Kohler 1.4.2
+    11. Prettier - Code formatter Esben Petersen 1.6.1
+    12. TSLint egamma 1.4.40
+   
+Create the Anuglar app 
+
+>ng new XXX
+>cd XXX
+>ng serve to run
+
+By default ng serve will open the app on port 4200. To change the port use 
+
+>ng serve --port 4201
+
+To stop ng serve, instead of killing the whole process or using ctrl+z, you can simply use ctrl+c to stop the server and can happily use ng serve command without any errors. 
+
+-----------------------------------------------------
+Directives
+	*ngIf (* is required since it is structural directive]
+	ngStyle	
+	ngClass
+	*ngFor
+	
+	
+

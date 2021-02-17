@@ -1,0 +1,7 @@
+basicTemplate
+	1. This is the basic template for the angular app. 
+	2. Nothing in it except bootstrap added to it and also added to the styles array
+	3. When copying this to create a new project, make sure to issue command "ng install" since "node_modules" has been deleted from it. 
+	
+prj1ServersInfo
+	check 02Project1ServersInfo.txt file for details

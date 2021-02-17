@@ -1,0 +1,50 @@
+Copy the basicTemplate folder and rename it as prj1ServersInfo, 
+	then go to it in the command prompt and issue command "npm install"
+	
+A sample basic project project to show how components are used
+
+Open src\index.html file in the root and change the title to "Project 1 Servers Information"
+
+We'll create a component called server. For this issue command 
+	>ng g c server
+	This will do a bunch of stuff for us once done. 
+		Take a look at the src\app folder, we'll have a new folder created with 4 files in it 
+		Also look at the "app.modules" file in the src\app folder. You'll see an import to it at the top and also the component added to the "declarations" array. 
+			Here we are telling angular about our pieces by registering them. 
+		
+	We are not using routing at this time. So open the server.component.ts file and loo at the "selector". It says "app-server".
+	
+To use our component, open the app.component.html and place <app-server></app-server> in it. 
+	Run the app by issuing command "ng serve" and then go to "http://localhost:4200/"
+	
+We'll add a new component called servers and then use the server above inside it. 
+
+Take a look at project to see the inner working of it.
+
+String Interpolation: {{data}}
+	Check the server functionality
+Property Binding: [property]="data"
+	Check the servers functionality
+	important note to not mix string interpolation and property binding
+Two way property binding: [(ngModel)]="data"
+	FormsModule is required, check the app.modules.ts 
+	<input type="text" class="form-control" [(ngModel)]="serverNameInputTwoWay">
+Event Binding: (event)="expression"
+	Check the servers functionality, specifically the button click event
+	Also check input element to see how the input value got passed to the component and then displayed with string interpolation. 
+		<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+	
+Built in Directives
+	*ngIf (* is required since it is structural directive]
+		<p class="text-info" *ngIf="buttonClicked; else noButton">Button is clicked</p>
+		<ng-template #noButton>
+		  <p class="text-info">Button is not clicked</p>
+		</ng-template>
+	ngStyle
+		take a look at the server functionality
+	ngClass
+		take a look at the server functionality
+	*ngFor
+
+		
+	
