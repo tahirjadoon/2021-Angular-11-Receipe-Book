@@ -1,0 +1,65 @@
+We'll create the structure for the our main app which is receipe bok. 
+
+Copy the basicTemplate rename it and then issue command "npm install". 
+
+Change the src\index.html and change the title to "Project 2 Recipe Book Structure"
+
+Open src\app\app.component.html and put some thing in it to test "ng serve". View the site in the browser and you should be able to see your content. 
+
+	<div class="container">
+	  <div class="row">
+		<div class="col-md-12">
+		  <h2>Project 2 - Structure</h2>
+		</div>
+	  </div>
+	</div> 
+	
+Our folder structure will be like 
+	src
+		app 
+			header
+				>ng g c header
+				add some thing to the header.component.html file
+				then add it to the app.component.html as "<app-header></app-header>"
+				
+			recipes
+				this one will be over all recipes feature component 
+				>ng g c recipes --skip-tests true 
+				
+				recipe-list
+					>ng g c recipes/recipe-list --skip-tests true
+
+					recipe-item 
+						>ng g c recipes/recipe-list/recipe-item --skip-tests true
+					
+				recipe-detail 
+					>ng g c recipes/recipe-detail --skip-tests true
+					
+			shopping-list
+				>ng g c shopping-list --skip-tests true
+				
+				shopping-edit
+					>ng g c shopping-list/shopping-edit --skip-tests true
+					
+Every thing got added to the app.module.ts file since we used the cli to create our components 
+
+Using the components that we created above
+	Add <app-recipes></app-recipes> and <app-shopping-list></app-shopping-list> to the app.component.html 
+	Add <app-recipe-list></app-recipe-list> and <app-recipe-detail></app-recipe-detail> to the recipies.component.html 
+	Add <app-recipe-item></app-recipe-item> to the recipe-list.component.html 
+	
+Create the header in the html in the header.component.html file. It is created with the bootstrap. 
+	take a note of the hamburger and non hamburger header menu html 
+	also, the "Manage" dropdown will be taken care of via directive later
+	
+					
+			
+					
+			
+				
+			
+			
+ 
+
+
+
