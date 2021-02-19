@@ -32,19 +32,7 @@ To install a specific version issue following command
 
 > npm install -g @angular/cli@wished.version.here
 
-To check the version of node. npm and angular
-
->node --version
-
-> npm --version
-
->ng --version
-
-To install bootstarp locally
-
- >npm install --save bootstrap@X where X is the bootstrap version 
-
-Then add it to the angular.json, styles array. make sure that bootstrap is the first one.
+------------------------------------------
 
 Angular CLI commands
 
@@ -52,9 +40,7 @@ Angular CLI commands
     https://www.javatpoint.com/angular-7-all-cli-commands
     https://angular.io/guide/setup-local  
 
-Create Component
->ng g c value --spec false
->ng generate component value --spec false 
+------------------------------------------ 
     
 Some helpful extensions for Angular when using visual studio code. Get the latest version of these.
     1. Angular and then select Angular v7 Snippets by john papa
@@ -68,6 +54,8 @@ Some helpful extensions for Angular when using visual studio code. Get the lates
     10. Path Intellisense Christian Kohler 1.4.2
     11. Prettier - Code formatter Esben Petersen 1.6.1
     12. TSLint egamma 1.4.40
+
+------------------------------------------
    
 Create the Anuglar app 
 
@@ -81,12 +69,26 @@ By default ng serve will open the app on port 4200. To change the port use
 
 To stop ng serve, instead of killing the whole process or using ctrl+z, you can simply use ctrl+c to stop the server and can happily use ng serve command without any errors. 
 
+------------------------------------------
+
+To install bootstarp locally
+
+ 	>npm install --save bootstrap@X where X is the bootstrap version 
+
+Then add it to the angular.json, styles array. make sure that bootstrap is the first one.
+
+-----------------------------------------------------
+
+Create Component
+	>ng g c value --spec false
+	>ng generate component value --spec false
+
 -----------------------------------------------------
 Directives
-	*ngIf (* is required since it is structural directive]
+	*ngIf (* is required since it is structural directive)
 	ngStyle	
 	ngClass
-	*ngFor
+	*ngFor (* is required since it is structural directive)
 	
 	
 
