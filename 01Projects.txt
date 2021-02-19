@@ -5,3 +5,6 @@ basicTemplate
 	
 prj1ServersInfo
 	check 02Project1ServersInfo.txt file for details
+
+prj2RecipeBookSetup
+	check 03Project2ReceipeBasicSetup.txt for details
