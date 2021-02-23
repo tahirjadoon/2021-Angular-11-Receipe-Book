@@ -13,7 +13,8 @@ prj03RecipePutStaticData
 	check 04Project03RecipePutStaticData.txt for details 
 	
 prj04ComponentsAndDataBinding-InputOutput
-	checl 05Project04ComponentsAndDataBinding-InputOutput.txt for details 
+	check 05Project04ComponentsAndDataBinding-InputOutput.txt for details 
 	
-	
+prj05ViewEncapsulation
+	builds on prj04ComponentsAndDataBinding-InputOutput and shows view encapsulation. Check the css files for details. 
 	

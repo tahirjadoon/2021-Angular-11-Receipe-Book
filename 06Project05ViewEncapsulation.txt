@@ -1,0 +1,38 @@
+Copy the prj04ComponentsAndDataBinding-InputOutput folder and rename it as prj05ViewEncapsulation, 
+	then go to it in the command prompt and issue command "npm install"
+	
+A sample project to show how view encapsulation is used
+
+Open src\index.html file in the root and change the title to "Project 5 View Encapsulation"
+
+Check the css files to see view encapsulation in play. 
+
+Add the collowing two styles to app component css and then serve the applicaion. You'll see that the blue text doesn't get applied to the p tag. 
+	.container {
+	  margin-top: 30px;
+	}
+
+	p {
+	  color: blue;
+	}
+	
+The reason is that the html is sitting in the individual html files and this is by design of Angular. 
+
+Any styles that are part of the component will get apploied to the html of that component. The global styles need to go in styles.css. 
+
+Move the p styles to server-elements.css and then serve the application again and add a blueprint. This time you'll see the blue color getting applied to the p tag.
+
+Angular kind of emulates shadow dom. 
+
+If you don't want any component to have a shadow dom then you'll need to do following on your componennt
+	import { Component, OnInit, EventEmitter, Output, ViewEncapsulation } from '@angular/core'; 
+	
+	@Component({
+	  selector: 'app-cockpit',
+	  templateUrl: './cockpit.component.html',
+	  styleUrls: ['./cockpit.component.css'], 
+	  encapsulation: ViewEncapsulation.None
+	})
+	
+	The possible values are None, Emulated (this is Default), and ShadowDom
+	
