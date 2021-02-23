@@ -45,6 +45,7 @@ Built in Directives
 	ngClass
 		take a look at the server functionality
 	*ngFor
+		*ngFor="let item of servers; let i = index;"
 
 		
 	
