@@ -1,0 +1,57 @@
+Copy the "prj2RecipeBasicSetup" project and name it as "prj3RecipePutStaticData" and then run "npm install" on it. 
+
+First added "----detail----" to all the html files to see where the data is comeing from. This is a div with class "component" assigned. Later we can remove it. by applyng display none to it. 
+
+
+In this step will put in some models to create static data.
+
+All the models will be inside the models folder. The naming convention will be NAME.models.ts
+
+To create a model run command. Note that models do not go in the app.module.ts 
+>ng g class models/recipe --type=model --skip-tests true
+
+	model is just a class and it looks like below. export key word is important here. 
+		export class Recipe {
+		  public name: string;
+		  public description: string;
+		  public imagePath: string;
+
+		  //so that we can use the new key word
+		  constructor(name: string, desc: string, imagePath: string){
+			this.name = name;
+			this.description = desc;
+			this.imagePath = imagePath;
+		  }
+		}
+
+	we can also have the above class like 
+	
+Then go to the recipe-list component and use it. 
+	We'll use it like 
+		recipes: Recipe[] = [];
+	It also needs an import 
+		import { Recipe } from 'src/app/models/recipe.model';
+	Take a look at the component to see its use. 
+	
+Next will work on the recipe-detail, see the html file for details. 
+
+After that we'll upgrade the shopping-list. Check the html file for details. 
+	We'll need an "ingredient" model here. We can put it directly under "models" but since it will be shared across recipe and shopping list, have put it under "models/shared" folder. 
+	>ng g class models/shared/ingredient --type=model --skip-tests true
+	
+	We have done this model differenlty by 
+	* removing the properties 
+	* and adding the public accessor infront of the property name
+	
+	export class Ingredient {
+	  constructor(public name: string, public amount: number){  }
+	}
+
+	This class is still the same as specified above. 
+	
+And finally put a place holder html for the shopping-edit with a form. 
+	
+	
+	
+
+	

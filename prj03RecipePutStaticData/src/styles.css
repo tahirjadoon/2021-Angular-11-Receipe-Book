@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+.component{
+  color: lightgray;
+}
+
+.component.component-recipe-detail {
+  color: lightsalmon;
+}
+
+.component.component-recipe-item{
+  color: lightskyblue;
+}
+
+.component.component-recipe-list{
+  color: lightgreen;
+}
+
+.component.component-shopping-edit{
+  color: rosybrown;
+}
+
+.component.component-shopping-list{
+  color: royalblue;
+}
+
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.imag-max-height{
+  max-height: 50px;
+}
+
