@@ -18,3 +18,6 @@ prj04ComponentsAndDataBinding-InputOutput
 prj05ViewEncapsulation
 	builds on prj04ComponentsAndDataBinding-InputOutput and shows view encapsulation. Check the css files for details. 
 	
+prj06UsingLocalReferences
+	builds on prj05ViewEncapsulation and shows use of local references instead of two way data binding
+	

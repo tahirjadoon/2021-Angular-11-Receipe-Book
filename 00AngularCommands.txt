@@ -144,6 +144,12 @@ INPUT and OUTPUT (custom event binding)
 
 				console.log(this.serverElements);
 			  }
+------------------------------------------------------
+Local Reference
+	It is always on the html, #SomeName. Gives the reference to the html element. 
+	On the componet side use it as SomeName.value if applied to the input. Make sure to pass it as part of your button click. 
+------------------------------------------------------	
+
 
 	
 

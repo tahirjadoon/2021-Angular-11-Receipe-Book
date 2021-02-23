@@ -1,0 +1,22 @@
+Copy the prj05ViewEncapsulation folder and rename it as prj06UsingLocalReferences, 
+	then go to it in the command prompt and issue command "npm install"
+	
+A sample project to show how local references is used
+
+Open src\index.html file in the root and change the title to "Project 6 Local References Use"
+
+Check cockpit component and html for more details. 
+
+local references can only be used inside the html template and not in the component. 
+
+local references is created with # and then the name. In the following case #serverNameInput will hold a refrence to the whole of the html element. 
+	<input type="text" class="form-control" #serverNameInput>
+	
+and then the button will pass it to the component 
+	<button class="btn btn-primary" (click)="onAddServer(serverNameInput)">Add Server</button>
+
+and then change the onAddServer method to get the local reference and use its value. 	
+	onAddServer(nameInput: HTMLInputElement) {
+		this.serverCreated.emit({serverName: nameInput.value, serverContent: this.newServerContent});
+	}
+	
