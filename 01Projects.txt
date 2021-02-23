@@ -4,7 +4,16 @@ basicTemplate
 	3. When copying this to create a new project, make sure to issue command "ng install" since "node_modules" has been deleted from it. 
 	
 prj1ServersInfo
-	check 02Project1ServersInfo.txt file for details
+	check 02Project01ServersInfo.txt file for details
 
 prj2RecipeBookSetup
-	check 03Project2ReceipeBasicSetup.txt for details
+	check 03Project02ReceipeBasicSetup.txt for details
+	
+prj03RecipePutStaticData
+	check 04Project03RecipePutStaticData.txt for details 
+	
+prj04ComponentsAndDataBinding-InputOutput
+	checl 05Project04ComponentsAndDataBinding-InputOutput.txt for details 
+	
+	
+	

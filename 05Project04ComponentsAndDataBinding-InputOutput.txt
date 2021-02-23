@@ -1,0 +1,93 @@
+Copy the basicTemplate folder and rename it as prj04ComponentsAndDataBinding-InputOutput, 
+	then go to it in the command prompt and issue command "npm install"
+	
+A sample project to show how data binding is used
+
+Open src\index.html file in the root and change the title to "Project 4 Components and Data Binding"
+
+We'll create multiple components here using the cli. 
+
+	Cockpit Components 
+		>ng g c cockpit --skip-tests true
+		this has the associated code to add a new
+	
+	Server Element Component 
+		>ng g c server-element --skip-tests true
+		this has the associated code to display
+		
+	app.components
+		the type script file has the "serverElements" array in which we'll push the data 
+		the html has the "cockpit" and "server-element" elements
+		
+Functionality
+	cockpit needs to inform the array defined in app.component that a new item is available to be added. 
+	when the new item get to the array, it needs to tell the server-element to show it. 
+	This will be done with property and event binding 
+		
+Exposing a property to the parent 
+	Child Component - server element component 
+		import { Component, Input, OnInit } from '@angular/core';
+		@Input() element: {type: string, name: string, content: string};
+	Parent - app component 
+		<app-server-element *ngFor="let serverElement of serverElements" [element]="serverElement"></app-server-element>
+		[element] is pointing to the child property 
+			
+	above could be done with an alias as well. Alias get exposed to the parent in this case 
+		Child - server element component
+			@Input('elementInfo') element: {type: string, name: string, content: string};
+		Parent - app component
+			<app-server-element *ngFor="let serverElement of serverElements" [elementInfo]="serverElement"></app-server-element>
+			
+Binding Custom Events 
+	here from the child we are informaing the parent that something has happened. 
+	from the cockpit we'll inform the app component that the server or blue print has been added. 
+	for this create two functions in the app component labelled as "onServerAdded" and "onBlueprintAdded" and push it to the serverElements array. 
+	
+	Custom event 
+		Parent - app component 
+			in the app components, where we have placed the element for the cockpit, bind a custom event. It will pass the data to the above mentioned onServerAdded function 
+				<app-cockpit (serverCreated)="onServerAdded($event)"></app-cockpit>
+				
+				onServerAdded(serverData: {serverName: string, serverContent: string}) {
+					this.serverElements.push({
+					  type: 'server',
+					  name: serverData.serverName,
+					  content: serverData.serverContent
+					});
+				  }
+				
+			just like the serverAdded above, do for the blue print 
+				<app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBlueprintAdded($event)"></app-cockpit>
+				
+				onBlueprintAdded(blueprintData: {serverName: string, serverContent: string}) {
+					this.serverElements.push({
+					  type: 'blueprint',
+					  name: blueprintData.serverName,
+					  content: blueprintData.serverContent
+					});
+				  }
+		Child - cockpint emit the custom events 
+			For this import EventEmitter and Output from '@angular/core'
+			Then create two properties  and make them listenable from outside.  
+				@Output() serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+				@Output() blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+			Then write two event to capture the data being created and emit an event 
+			
+				onAddServer() {
+					this.serverCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});
+				}
+				onAddBlueprint() {
+					this.blueprintCreated.emit({serverName: this.newServerName, serverContent: this.newServerContent});
+				}
+	
+		We can use the alias here as well 
+			Child - cockpit component 
+				@Output('serverCreatedEvent') serverCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+				@Output('blueprintCreatedEvent') blueprintCreated = new EventEmitter<{serverName: string, serverContent: string}>();
+				
+			Parent = app component 
+				<app-cockpit (serverCreatedEvent)="onServerAdded($event)" (blueprintCreatedEvent)="onBlueprintAdded($event)"></app-cockpit>
+		
+	
+		
+	

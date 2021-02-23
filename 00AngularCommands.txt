@@ -95,5 +95,55 @@ Directives
 	*ngFor (* is required since it is structural directive)
 		*ngFor="let item of servers; let i = index;"
 	
+------------------------------------------------------
+INPUT and OUTPUT (custom event binding)
+	INPUT 
+		Child Component (with alias)
+			import { Component, Input, OnInit } from '@angular/core';
+			@Input('elementInfo') element: string;
+		Parent Component (with alias)
+			<app-server-element *ngFor="let serverElement of serverElements" [elementInfo]="serverElement"></app-server-element>
+	
+	OUTPUT 
+		Child Component (with alias)
+			import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+			@Output('serverCreatedEvent') serverCreated = new EventEmitter<name: string>();
+			@Output('blueprintCreatedEvent') blueprintCreated = new EventEmitter<name: string>();
+			
+			Then emit the event 
+			
+			onAddServer() {
+				this.serverCreated.emit('server');
+			}
+
+			onAddBlueprint() {
+				this.blueprintCreated.emit('blueprint');
+			}
+			
+		Parent Component (with alias)
+			<app-cockpit (serverCreatedEvent)="onServerAdded($event)" (blueprintCreatedEvent)="onBlueprintAdded($event)"></app-cockpit>
+			
+			  serverElements = [];
+
+			  onServerAdded(serverData: {serverName: string, serverContent: string}) {
+				this.serverElements.push({
+				  type: 'server',
+				  name: serverData.serverName,
+				  content: serverData.serverContent
+				});
+
+				console.log(this.serverElements);
+			  }
+
+			  onBlueprintAdded(blueprintData: {serverName: string, serverContent: string}) {
+				this.serverElements.push({
+				  type: 'blueprint',
+				  name: blueprintData.serverName,
+				  content: blueprintData.serverContent
+				});
+
+				console.log(this.serverElements);
+			  }
+
 	
 
