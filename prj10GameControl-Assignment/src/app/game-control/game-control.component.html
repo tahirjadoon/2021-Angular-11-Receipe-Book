@@ -1,0 +1,7 @@
+<button class="btn btn-primary" (click)="onStartGame()" [disabled]="isRunning">Start Game</button>&nbsp;
+<button class="btn btn-warning" (click)="onStopGame()" [disabled]="!isRunning">Stop Game</button>&nbsp;
+<button class="btn btn-danger" (click)="onClearGame()" [disabled]="isRunning || totalCount <= 0">Clear Game</button>&nbsp;
+<br/>
+<hr>
+<button class="btn btn-danger" (click)="onResetGame()" [disabled]="isRunning || totalCount <= 0">Reset Game</button>&nbsp;
+<hr>

@@ -1,0 +1,7 @@
+<h2>Even Numbers:</h2>
+
+<p *ngIf="evenNumbers.length <= 0; else displayNumbers">No even numbers availabe</p>
+
+<p #displayNumbers *ngFor="let num of evenNumbers; let i = index">
+  {{ i+1 }}: {{ num }}
+</p>

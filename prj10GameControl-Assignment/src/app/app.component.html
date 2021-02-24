@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="row margin-top">
+    <div class="col-xs-12">
+      <app-game-control (intervalFired)="onGameIntervalFired($event)" (resetFired)="onGameReset()" [totalCount]="evenNumbers.length+oddNumbers.length"></app-game-control>
+    </div>
+  </div>
+
+  <div class="row margin-top">
+    <div class="col-xs-12">
+      <app-even [evenNumbers]="evenNumbers"></app-even>
+    </div>
+  </div>
+
+  <div class="row margin-top">
+    <div class="col-xs-12">
+      <app-odd [oddNumbers]="oddNumbers"></app-odd>
+    </div>
+  </div>
+
+</div>

@@ -21,3 +21,14 @@ prj05ViewEncapsulation
 prj06UsingLocalReferences
 	builds on prj05ViewEncapsulation and shows use of local references instead of two way data binding
 	
+prj07UsingViewChild
+	builds on prj06UsingLocalReferences and shows the use of ViewChild
+	
+prj08UsingNgContentToProjectContent
+	builds on prj07UsingViewChild and shows the use of ng-content
+	
+prj09UAccessNgContentWithContentChild
+	builds on prj08UsingNgContentToProjectContent and shpws the use of ContentChild 
+	
+prj10GameControl-Assignment
+	This is an assignment and covers all the concepts learned so far

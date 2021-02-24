@@ -1,0 +1,7 @@
+<h2>Odd Numbers:</h2>
+
+<p *ngIf="oddNumbers.length <= 0; else displayOddNumbers">No odd numbers availabe</p>
+
+<p #displayOddNumbers *ngFor="let num of oddNumbers; let i = index">
+  {{ i+1 }}: {{ num }}
+</p>
