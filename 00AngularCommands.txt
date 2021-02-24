@@ -178,4 +178,23 @@ Projecting Content with ng-content
 		<ng-content></ng-content>
 	and then in the child component html file, place the html content where you are calling the child component. 
 ------------------------------------------------------	
+@ContentChild()
+	Place a reference on <p> tag which in the in the parent component which is passing the content to ng-template
+		<p #contentParagraph>
 
+	Then on the child component that has the ng-template, do the following
+
+	import ElementRef from angular core
+			import { Component, ContentChild, ElementRef, Input, OnInit } from '@angular/core';
+		@ContentChild('contentParagraph', {static: true}) paragraph: ElementRef;
+
+	and finally
+		import AfterContentInit from angular core
+			import { AfterContentInit, Component, ContentChild, ElementRef, Input, OnInit } from '@angular/core';
+		add to the interfaces list
+			export class ServerElementComponent implements OnInit, AfterContentInit {
+		and then create the ngAfterContentInit hook and console log the content of the paragraph tag
+			ngAfterContentInit(){
+				console.log(`ParagraphContent:${this.paragraph.nativeElement.textContent}`);
+			}
+------------------------------------------------------
