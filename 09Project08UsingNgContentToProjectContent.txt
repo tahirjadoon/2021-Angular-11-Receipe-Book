@@ -1,0 +1,24 @@
+Copy the prj07UsingViewChild folder and rename it as prj08UsingNgContentToProjectContent, 
+	then go to it in the command prompt and issue command "npm install"
+	
+A sample project to show how ng-content is used
+
+Open src\index.html file in the root and change the title to "Project 8 ng-content"
+
+
+it is a directive. In the parent components html file put 
+	<ng-content></ng-content>
+and then in the child component html file, place the html content where you are calling the child component. 
+	
+remove the <p> tag from the server-element component html and replace it with 
+
+place the <p> tag inside the for loop in app component html. Do you the correct references. 
+
+	<app-server-element *ngFor="let serverElement of serverElements" [elementInfo]="serverElement">
+	  <p>
+		<strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+		<em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+	  </p>
+	</app-server-element>
+
+also, dont forget to move the p style from cockpit component css to app component css. 

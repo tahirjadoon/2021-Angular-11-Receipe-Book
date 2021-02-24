@@ -173,5 +173,9 @@ Local Reference
 
 	If you DON'T access the selected element in ngOnInit (but anywhere else in your component), set static: false 
 ------------------------------------------------------
-	
+Projecting Content with ng-content	
+	it is a directive. In the parent components html file put 
+		<ng-content></ng-content>
+	and then in the child component html file, place the html content where you are calling the child component. 
+------------------------------------------------------	
 
