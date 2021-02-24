@@ -1,0 +1,33 @@
+Copy the prj08UsingNgContentToProjectContent folder and rename it as prj09UAccessNgContentWithContentChild, 
+	then go to it in the command prompt and issue command "npm install"
+	
+A sample project to show how ng-content is used
+
+Open src\index.html file in the root and change the title to "Project 9 Access ng-content with ContetChild"
+
+currently we have a <p> tag in app.component.html which displays in server-element.html since ng-content hool is placed there.
+
+we can access the <p> tag in the server-element component with a ContentChild. 
+
+open app.component.html and place a reference on <p> tag 
+	<p #contentParagraph>
+		<strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+		<em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+	</p>
+	
+then open the server-element component setup up a viewvhild in it. 
+	import ElementRef from angular core 
+		import { Component, ContentChild, ElementRef, Input, OnInit } from '@angular/core';
+	@ContentChild('contentParagraph', {static: true}) paragraph: ElementRef;
+
+and finally 
+	import AfterContentInit from angular core 
+		import { AfterContentInit, Component, ContentChild, ElementRef, Input, OnInit } from '@angular/core';
+	add to the interfaces list 
+		export class ServerElementComponent implements OnInit, AfterContentInit {
+	and then create the ngAfterContentInit hook and console log the content of the paragraph tag 
+		ngAfterContentInit(){
+			console.log(`ParagraphContent:${this.paragraph.nativeElement.textContent}`);
+		}
+
+ 
