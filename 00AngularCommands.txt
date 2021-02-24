@@ -56,7 +56,6 @@ Some helpful extensions for Angular when using visual studio code. Get the lates
     12. TSLint egamma 1.4.40
 
 ------------------------------------------
-   
 Create the Anuglar app 
 
 >ng new XXX
@@ -68,21 +67,35 @@ By default ng serve will open the app on port 4200. To change the port use
 >ng serve --port 4201
 
 To stop ng serve, instead of killing the whole process or using ctrl+z, you can simply use ctrl+c to stop the server and can happily use ng serve command without any errors. 
-
 ------------------------------------------
-
 To install bootstarp locally
-
  	>npm install --save bootstrap@X where X is the bootstrap version 
 
 Then add it to the angular.json, styles array. make sure that bootstrap is the first one.
-
 -----------------------------------------------------
-
 Create Component
-	>ng g c value --spec false
-	>ng generate component value --spec false
+	OLD
+		>ng g c value --spec false
+		>ng generate component value --spec false
+	NOW 
+		>ng g c value --skip-tests true
+		>ng generate component value --skip-tests true
+------------------------------------------------------		
+Create Class
+	>ng g class models/NAME --type=model --skip-tests true
 
+	There are two ways to create the class. 
+
+    export class Recipe {
+	  public name: string;
+	  constructor(name: string){
+		this.name = name;
+	  }
+	}
+	
+    export class Ingredient {
+	  constructor(public name: string){  }
+	}
 -----------------------------------------------------
 Directives
 	*ngIf (* is required since it is structural directive)
@@ -149,7 +162,16 @@ Local Reference
 	It is always on the html, #SomeName. Gives the reference to the html element. 
 	On the componet side use it as SomeName.value if applied to the input. Make sure to pass it as part of your button click. 
 ------------------------------------------------------	
+@ViewChild()
+	Instead of:
+		@ViewChild('serverContentInput') serverContentInput: ElementRef;
+	use
+		@ViewChild('serverContentInput', {static: true}) serverContentInput: ElementRef;
+	
+	The same change (add { static: true } as a second argument) needs to be applied to ALL usages of @ViewChild() (and also @ContentChild()) 
+		If you plan on accessing the selected element inside of ngOnInit().
 
-
+	If you DON'T access the selected element in ngOnInit (but anywhere else in your component), set static: false 
+------------------------------------------------------
 	
 

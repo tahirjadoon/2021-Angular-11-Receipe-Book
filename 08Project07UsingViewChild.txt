@@ -1,0 +1,40 @@
+Copy the prj06UsingLocalReferences folder and rename it as prj07UsingViewChild, 
+	then go to it in the command prompt and issue command "npm install"
+	
+A sample project to show how ViewChild is used
+
+Open src\index.html file in the root and change the title to "Project 7 ViewChild"
+
+instead of:
+	@ViewChild('serverContentInput') serverContentInput: ElementRef;
+use
+	@ViewChild('serverContentInput', {static: true}) serverContentInput: ElementRef;
+
+the same change (add { static: true } as a second argument) needs to be applied to ALL usages of @ViewChild() (and also @ContentChild()) 
+	If you plan on accessing the selected element inside of ngOnInit().
+
+if you DON'T access the selected element in ngOnInit (but anywhere else in your component), set static: false
+
+usage would be like 
+	<input type="text" class="form-control" #serverContentInput> 
+
+and then 
+	import ViewChild, ElementRef 
+		import { Component, OnInit, EventEmitter, Output, ViewEncapsulation, ViewChild, ElementRef } from '@angular/core';
+		
+	declare the property as ViewChild, make sure to pass javascript object static: true. Also this is of type ElementRef
+		@ViewChild('serverContentInput', {static: true}) serverContent: ElementRef;
+		
+	and then use it as 
+	
+		onAddServer(nameInput: HTMLInputElement) {
+			this.serverCreated.emit({serverName: nameInput.value, serverContent: this.serverContent.nativeElement.value});
+		}
+
+		  onAddBlueprint(nameInput: HTMLInputElement) {
+			this.blueprintCreated.emit({serverName: nameInput.value, serverContent: this.serverContent.nativeElement.value});
+		}
+	
+		
+		
+	
